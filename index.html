@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namma College - Free Career Guidance | Tamil Nadu</title>
+<meta name="description" content="Namma College offers free career guidance, college admissions support and 12th exam coaching for Tamil Nadu students since 2009. 85% question match rate.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --brand: #2B4C8C; --brand-dark: #1a3060; --brand-light: #e8eef9;
+    --accent: #F5A623; --white: #ffffff; --text: #1a1a2e;
+    --text-muted: #5a6480; --border: #e2e8f0; --bg-soft: #f7f9fc;
+  }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--brand); text-decoration: none; }
+  .nav-logo-icon { width: 40px; height: 40px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: white; border: 1px solid var(--border); }
+  .nav-logo-icon img { width: 40px; height: 40px; object-fit: contain; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--brand); }
+  .nav-cta { background: var(--brand) !important; color: white !important; padding: 8px 18px; border-radius: 8px; }
+  .nav-cta:hover { background: var(--brand-dark) !important; }
+  .hero {
+    min-height: 88vh; background: linear-gradient(135deg, #2B4C8C 0%, #1a3060 60%, #0d1f42 100%);
+    display: flex; align-items: center; padding: 80px 5% 60px; position: relative; overflow: hidden;
+  }
+  .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: rgba(245,166,35,0.12); pointer-events: none; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 60px; }
+  .hero-text { flex: 1; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,166,35,0.18); border: 1px solid rgba(245,166,35,0.4); color: #F5A623; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #F5A623; display: inline-block; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 900; line-height: 1.1; color: white; margin-bottom: 20px; }
+  h1 em { color: #F5A623; font-style: normal; }
+  .hero-sub { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 36px; max-width: 500px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #F5A623; color: #1a1a00; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+  .btn-primary:hover { background: #e09614; transform: translateY(-1px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: white; font-weight: 500; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+  .hero-stats { display: flex; gap: 32px; margin-top: 48px; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: white; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+  .hero-card { flex: 0 0 340px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 28px; }
+  .hero-card-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+  .offer-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; margin-bottom: 10px; }
+  .offer-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .offer-text p { font-size: 14px; font-weight: 600; color: white; }
+  .offer-text span { font-size: 12px; color: rgba(255,255,255,0.5); }
+  .free-badge { margin-left: auto; background: rgba(245,166,35,0.2); color: #F5A623; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; flex-shrink: 0; }
+  .trust-bar { background: #e8eef9; border-bottom: 1px solid #d0daf0; padding: 14px 5%; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #2B4C8C; }
+  .trust-dot { width: 5px; height: 5px; border-radius: 50%; background: #2B4C8C; opacity: 0.4; }
+  section { padding: 70px 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #2B4C8C; margin-bottom: 10px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 14px; }
+  .section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+  .services-bg { background: #f7f9fc; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .service-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 28px 24px; transition: all 0.25s; }
+  .service-card:hover { border-color: #2B4C8C; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(43,76,140,0.12); }
+  .service-icon { width: 48px; height: 48px; border-radius: 12px; background: #e8eef9; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
+  .service-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .service-tag { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; background: #e8eef9; color: #2B4C8C; padding: 4px 10px; border-radius: 6px; }
+  .service-tag.free { background: #edfaf3; color: #1a7a4a; }
+  .results-bg { background: #2B4C8C; }
+  .results-bg h2 { color: white; }
+  .results-bg .section-tag { color: #F5A623; }
+  .results-bg .section-sub { color: rgba(255,255,255,0.65); }
+  .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+  .result-card { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 24px 20px; text-align: center; transition: all 0.2s; }
+  .result-card:hover { background: rgba(255,255,255,0.14); }
+  .result-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: #F5A623; }
+  .result-label { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 6px; line-height: 1.4; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .testimonial-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 24px; position: relative; }
+  .testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 72px; line-height: 0.8; color: #e8eef9; position: absolute; top: 18px; right: 20px; }
+  .test-score { display: inline-flex; align-items: center; gap: 6px; background: #edfaf3; color: #1a7a4a; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 8px; margin-bottom: 14px; }
+  .test-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 18px; }
+  .test-name { font-weight: 600; font-size: 14px; }
+  .test-subject { font-size: 12px; color: var(--text-muted); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .why-list { display: flex; flex-direction: column; gap: 20px; }
+  .why-item { display: flex; gap: 16px; align-items: flex-start; }
+  .why-num { width: 36px; height: 36px; border-radius: 10px; background: #2B4C8C; color: white; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .why-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .why-item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .why-visual { background: #2B4C8C; border-radius: 20px; padding: 36px; color: white; text-align: center; }
+  .why-visual-num { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: #F5A623; line-height: 1; }
+  .why-visual p { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .why-visual-divider { width: 40px; height: 3px; background: #F5A623; border-radius: 2px; margin: 20px auto; }
+  .why-visual-sub { font-size: 22px; font-weight: 700; color: white; }
+  .cta-section { background: #1a1a2e; text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; font-size: clamp(28px, 4vw, 44px); margin-bottom: 14px; }
+  .cta-section p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 36px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: white; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+  .btn-whatsapp:hover { background: #1da855; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: #1a1a2e; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+  .btn-white:hover { background: #f0f0f0; }
+  footer { background: #0d1220; padding: 48px 5% 24px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .footer-logo img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; background: white; padding: 2px; }
+  .footer-logo span { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 18px; }
+  .footer-phones a { display: block; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 6px; }
+  .footer-phones a:hover { color: #F5A623; }
+  .footer-col h5 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; }
+  .footer-col a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .social-links { display: flex; gap: 10px; }
+  .social-link { width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); transition: all 0.2s; }
+  .social-link:hover { background: #2B4C8C; color: white; }
+  @media (max-width: 768px) {
+    .hero-inner { flex-direction: column; gap: 36px; }
+    .hero-card { flex: none; width: 100%; }
+    .hero-stats { gap: 20px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .nav-links { display: none; }
+    .trust-bar { gap: 16px; }
+    .trust-dot { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">
+      <img src="logo.png" alt="Namma College Logo">
+    </div>
+    Namma College
+  </a>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Results</a>
+    <a href="#">Study Materials</a>
+    <a href="#" class="nav-cta">📞 Contact Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span></span> Tamil Nadu's Trusted Since 2009</div>
+      <h1>Your <em>Dream College</em> Starts Here</h1>
+      <p class="hero-sub">Free career guidance, college admissions support & 12th exam coaching for Tamil Nadu students. 85% question accuracy in Board exams.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/919363515442" class="btn-primary">💬 Get Free Guidance</a>
+        <a href="#" class="btn-outline">📥 Download Question Papers</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">85%</div>
+          <div class="stat-label">Question Match Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1000s</div>
+          <div class="stat-label">Students Helped</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">What We Offer — Free</div>
+      <div class="offer-item">
+        <div class="offer-icon" style="background:rgba(245,166,35,0.15)">🎓</div>
+        <div class="offer-text"><p>Career Guidance</p><span>Personalized counselling</span></div>
+        <span class="free-badge">FREE</span>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon" style="background:rgba(100,200,150,0.15)">🏫</div>
+        <div class="offer-text"><p>College Admissions</p><span>Engineering, Arts, Science</span></div>
+        <span class="free-badge">FREE</span>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon" style="background:rgba(100,150,250,0.15)">📝</div>
+        <div class="offer-text"><p>Exam Coaching</p><span>12th Tamil State Board</span></div>
+        <span class="free-badge">FREE</span>
+      </div>
+      <div class="offer-item">
+        <div class="offer-icon" style="background:rgba(230,100,100,0.15)">📄</div>
+        <div class="offer-text"><p>Question Papers</p><span>Important questions PDF</span></div>
+        <span class="free-badge">FREE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item">✅ 100% Free Guidance</div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">📍 Based in Tamil Nadu</div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">📅 Serving Since 2009</div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">📱 Available on WhatsApp</div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">🎯 85% Exam Accuracy</div>
+</div>
+
+<section class="services-bg">
+  <div class="section-inner">
+    <p class="section-tag">What We Do</p>
+    <h2>Everything You Need to Succeed</h2>
+    <p class="section-sub">From choosing the right career path to scoring high in exams — we guide you every step of the way. Completely free.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Career Guidance</h3>
+        <p>Personalized one-on-one counselling to help students choose the right stream, course and career path based on their interests and aptitude.</p>
+        <span class="service-tag free">Free Service</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏛️</div>
+        <h3>College Admissions</h3>
+        <p>Complete support for Engineering, Medical, Arts & Science admissions. We help with applications, counselling, cutoffs and documentation.</p>
+        <span class="service-tag free">Free Service</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📚</div>
+        <h3>Exam Coaching</h3>
+        <p>Focused coaching for 12th Tamil Nadu State Board exams. Our important question papers have 85% match rate with actual board papers.</p>
+        <span class="service-tag free">Free Service</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📥</div>
+        <h3>Study Materials</h3>
+        <p>Download our important question papers and study guides for 12th board exams. Thousands of students rely on our PDFs every year.</p>
+        <span class="service-tag free">Free Download</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results-bg">
+  <div class="section-inner">
+    <p class="section-tag">2026 Public Exam Results</p>
+    <h2>Our Students Scored Big</h2>
+    <p class="section-sub">The 2026 Tamil Nadu State Board results speak for themselves. Here's what our students achieved.</p>
+    <div class="results-grid">
+      <div class="result-card"><div class="result-num">98+</div><div class="result-label">Top score by our students</div></div>
+      <div class="result-card"><div class="result-num">85%</div><div class="result-label">Questions matched actual paper</div></div>
+      <div class="result-card"><div class="result-num">20+</div><div class="result-label">Testimonials from 2026 batch</div></div>
+      <div class="result-card"><div class="result-num">15+</div><div class="result-label">Years of proven results</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="section-tag">Student Stories</p>
+    <h2>What Our Students Say</h2>
+    <p class="section-sub">Real results from real students who trusted Namma College for their 12th board exam preparation.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="test-score">🏆 97/100 in Tamil</div>
+        <p class="test-text">"Namma College's question paper was exactly like the real exam. Almost all questions came directly from their PDF. I scored 97 marks and I'm so happy!"</p>
+        <div class="test-name">Student, 2026 Batch</div>
+        <div class="test-subject">12th Tamil, State Board</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="test-score">🏆 95+ Marks</div>
+        <p class="test-text">"I was nervous about the exam but Namma College's materials gave me confidence. The important questions they provided were spot on. Highly recommend!"</p>
+        <div class="test-name">Student, 2026 Batch</div>
+        <div class="test-subject">12th Tamil, State Board</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="test-score">🏆 90+ Marks</div>
+        <p class="test-text">"Thank you Namma College! The free question papers really helped me focus on the right topics. My marks improved a lot this year."</p>
+        <div class="test-name">Student, 2026 Batch</div>
+        <div class="test-subject">12th Tamil, State Board</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-bg">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <p class="section-tag">Why Namma College</p>
+        <h2>Trusted by Tamil Nadu Families Since 2009</h2>
+        <p class="section-sub">We're not just a coaching centre — we're your education partner.</p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">1</div>
+            <div><h4>Completely Free — No Hidden Costs</h4><p>All our career guidance, counselling, and study materials are 100% free. No fees, no charges, ever.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">2</div>
+            <div><h4>Deep Local Knowledge</h4><p>We understand Tamil Nadu's education system, board exams, and college counselling landscape better than anyone.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">3</div>
+            <div><h4>Proven Question Accuracy</h4><p>Our important question papers have an 85% match rate with actual Tamil Nadu State Board papers — year after year.</p></div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">4</div>
+            <div><h4>Always Available on WhatsApp</h4><p>Reach us anytime on WhatsApp for guidance, doubts, and admissions help. We respond fast.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual">
+        <div class="why-visual-num">2009</div>
+        <p>Founded with one mission</p>
+        <div class="why-visual-divider"></div>
+        <div class="why-visual-sub">Free Education For Every Student in Tamil Nadu</div>
+        <br>
+        <a href="https://wa.me/919363515442" class="btn-primary" style="margin-top:16px;display:inline-flex">💬 Chat With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-inner">
+    <h2>Ready to Start Your Journey?</h2>
+    <p>Get free career guidance today. No fees, no appointments — just reach out.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/919363515442" class="btn-whatsapp">💬 WhatsApp Us Now</a>
+      <a href="tel:+919363515442" class="btn-white">📞 +91 93635 15442</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="logo.png" alt="Namma College Logo">
+          <span>Namma College</span>
+        </div>
+        <p class="footer-desc">Tamil Nadu's trusted educational consultancy since 2009. Providing free career guidance, college admissions support, and exam coaching to thousands of students.</p>
+        <div class="footer-phones">
+          <a href="tel:+919363515442">📞 +91 93635 15442</a>
+          <a href="tel:+919442692838">📞 +91 94426 92838</a>
+          <a href="tel:+919514906081">📞 +91 95149 06081</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Pages</h5>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Student Results</a>
+        <a href="#">Study Materials</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Follow Us</h5>
+        <a href="https://instagram.com/namma.college" target="_blank">Instagram</a>
+        <a href="https://facebook.com/NammaCollege" target="_blank">Facebook</a>
+        <a href="https://youtube.com/@NammaCollege" target="_blank">YouTube</a>
+        <a href="https://linkedin.com/company/namma-college" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Namma College. All rights reserved. | nammacollege.com</p>
+      <div class="social-links">
+        <a class="social-link" href="https://linkedin.com/company/namma-college" target="_blank">in</a>
+        <a class="social-link" href="https://facebook.com/NammaCollege" target="_blank">fb</a>
+        <a class="social-link" href="https://youtube.com/@NammaCollege" target="_blank">yt</a>
+        <a class="social-link" href="https://instagram.com/namma.college" target="_blank">ig</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
