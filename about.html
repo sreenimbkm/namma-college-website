@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Namma College | Tamil Nadu's Trusted Since 2009</title>
+<meta name="description" content="Learn about Namma College - Tamil Nadu's trusted free career guidance consultancy since 2009, based in Coimbatore.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --brand: #2B4C8C; --brand-dark: #1a3060; --brand-light: #e8eef9; --accent: #F5A623; --white: #ffffff; --text: #1a1a2e; --text-muted: #5a6480; --border: #e2e8f0; --bg-soft: #f7f9fc; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+  .top-bar { background: var(--brand-dark); padding: 8px 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .top-bar-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .top-bar-left a { color: rgba(255,255,255,0.75); font-size: 12px; font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .top-bar-left a:hover { color: var(--accent); }
+  .top-bar-right { display: flex; align-items: center; gap: 10px; }
+  .top-bar-right span { color: rgba(255,255,255,0.45); font-size: 12px; }
+  .social-icon-sm { width: 26px; height: 26px; border-radius: 6px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.2s; }
+  .social-icon-sm:hover { background: var(--accent); }
+  .social-icon-sm svg { width: 13px; height: 13px; fill: rgba(255,255,255,0.7); }
+  .social-icon-sm:hover svg { fill: white; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.98); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--brand); text-decoration: none; }
+  .nav-logo-icon { width: 40px; height: 40px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: white; border: 1px solid var(--border); }
+  .nav-logo-icon img { width: 40px; height: 40px; object-fit: contain; }
+  .nav-links { display: flex; gap: 6px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; padding: 6px 10px; border-radius: 8px; transition: all 0.2s; }
+  .nav-links a:hover { color: var(--brand); background: var(--brand-light); }
+  .nav-links a.active { color: var(--brand); font-weight: 600; }
+  .nav-cta { background: var(--brand) !important; color: white !important; padding: 8px 16px !important; border-radius: 8px !important; }
+  .nav-cta:hover { background: var(--brand-dark) !important; color: white !important; }
+  .nav-toggle { display: none; border: 1px solid var(--border); background: white; width: 42px; height: 42px; border-radius: 10px; align-items: center; justify-content: center; cursor: pointer; padding: 0; }
+  .hamburger { width: 18px; height: 14px; position: relative; }
+  .hamburger span { position: absolute; left: 0; right: 0; height: 2px; background: var(--brand); border-radius: 2px; transition: all 0.25s; }
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 6px; }
+  .hamburger span:nth-child(3) { top: 12px; }
+  .nav-toggle.is-open .hamburger span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+  .nav-toggle.is-open .hamburger span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+  .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4); text-decoration: none; transition: all 0.2s; }
+  .whatsapp-float:hover { transform: scale(1.1); }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+  .page-hero { background: linear-gradient(135deg, #2B4C8C 0%, #1a3060 100%); padding: 60px 5%; text-align: center; }
+  .page-hero-inner { max-width: 700px; margin: 0 auto; }
+  .page-hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,166,35,0.18); border: 1px solid rgba(245,166,35,0.4); color: #F5A623; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 100px; margin-bottom: 20px; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 50px); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 16px; }
+  .page-hero h1 em { color: #F5A623; font-style: normal; }
+  .page-hero p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7; max-width: 500px; margin: 0 auto; }
+  section { padding: 70px 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 14px; }
+  .section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-visual { background: var(--brand); border-radius: 24px; padding: 40px; text-align: center; color: white; }
+  .about-year { font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 900; color: #F5A623; line-height: 1; }
+  .about-visual p { font-size: 15px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .about-divider { width: 40px; height: 3px; background: #F5A623; border-radius: 2px; margin: 20px auto; }
+  .about-visual-sub { font-size: 20px; font-weight: 700; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .about-stat { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; text-align: center; }
+  .about-stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: #F5A623; }
+  .about-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+  .about-content h3 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--text); margin-bottom: 16px; }
+  .about-content p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+  .about-highlights { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .highlight-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--brand-light); border-radius: 10px; }
+  .highlight-item span { font-size: 14px; font-weight: 500; color: var(--brand-dark); }
+  .services-bg { background: var(--bg-soft); }
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .team-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 32px 24px; text-align: center; transition: all 0.25s; }
+  .team-card:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(43,76,140,0.12); }
+  .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--brand); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: white; margin: 0 auto 16px; }
+  .team-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .team-card .role { font-size: 13px; font-weight: 600; color: var(--brand); margin-bottom: 12px; }
+  .team-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .value-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 28px 24px; transition: all 0.25s; }
+  .value-card:hover { border-color: var(--brand); transform: translateY(-3px); }
+  .value-icon { font-size: 32px; margin-bottom: 14px; }
+  .value-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
+  .timeline-item { display: flex; gap: 24px; padding-bottom: 36px; position: relative; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .timeline-dot { width: 44px; height: 44px; border-radius: 50%; background: var(--brand); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; color: white; font-size: 11px; flex-shrink: 0; }
+  .timeline-line { width: 2px; flex: 1; background: var(--border); margin-top: 8px; }
+  .timeline-item:last-child .timeline-line { display: none; }
+  .timeline-content { padding-top: 10px; }
+  .timeline-content h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .timeline-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .cta-section { background: #1a1a2e; text-align: center; padding: 80px 5%; }
+  .cta-section h2 { color: white; font-size: clamp(28px, 4vw, 44px); margin-bottom: 14px; font-family: 'Playfair Display', serif; font-weight: 900; }
+  .cta-section p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 36px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: white; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+  .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: #1a1a2e; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
+  footer { background: #0d1220; padding: 56px 5% 24px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer-logo img { width: 36px; height: 36px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
+  .footer-logo span { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 20px; }
+  .footer-phones a { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 8px; }
+  .footer-phones a:hover { color: var(--accent); }
+  .footer-col h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.25); margin-bottom: 18px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: white; }
+  .footer-social { display: flex; gap: 8px; margin-top: 16px; }
+  .footer-social-link { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.2s; }
+  .footer-social-link:hover { background: var(--brand); }
+  .footer-social-link svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.6); }
+  .footer-social-link:hover svg { fill: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
+  @media (max-width: 768px) {
+    .top-bar { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--border); padding: 16px 5% 20px; flex-direction: column; align-items: flex-start; gap: 4px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .nav-links.is-open { display: flex; }
+    .nav-links a { width: 100%; padding: 10px 14px; font-size: 15px; }
+    .nav-cta { width: 100%; justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/919363515442" class="whatsapp-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <a href="tel:+919363515442">📞 +91 93635 15442</a>
+    <a href="tel:+919442692838">📞 +91 94426 92838</a>
+    <a href="mailto:info@nammacollege.com">✉️ info@nammacollege.com</a>
+  </div>
+  <div class="top-bar-right">
+    <span>Follow us:</span>
+    <a href="https://instagram.com/namma.college" class="social-icon-sm" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+    <a href="https://facebook.com/NammaCollege" class="social-icon-sm" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://youtube.com/@NammaCollege" class="social-icon-sm" target="_blank"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+    <a href="https://linkedin.com/company/nammacollege-official" class="social-icon-sm" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+  </div>
+</div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon"><img src="logo.png" alt="Namma College Logo"></div>
+    Namma College
+  </a>
+  <div class="nav-links" id="primary-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="services.html">Services</a>
+    <a href="results.html">Results</a>
+    <a href="studymaterials.html">Study Materials</a>
+    <a href="contact.html" class="nav-cta">📞 Contact Us</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-badge">🎓 Est. 2009 — Coimbatore</div>
+    <h1>About <em>Namma College</em></h1>
+    <p>Tamil Nadu's most trusted free career guidance consultancy — helping students find their dream colleges since 2009.</p>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-content">
+        <p class="section-tag">Our Story</p>
+        <h2>15+ Years of Free Guidance</h2>
+        <p>Namma College was founded in 2009 in Coimbatore with one simple mission: provide every Tamil Nadu student access to quality career guidance — completely free of charge.</p>
+        <p>What started as a small consultancy has grown into Tamil Nadu's most trusted educational platform, helping thousands of students every year navigate college admissions, entrance exams, and career decisions.</p>
+        <p>Our team of experienced counsellors, educators, and career experts work tirelessly to ensure every student — regardless of their financial background — gets the guidance they deserve.</p>
+        <div class="about-highlights">
+          <div class="highlight-item">✅ <span>100% Free career guidance — no hidden charges</span></div>
+          <div class="highlight-item">📍 <span>Headquartered in Coimbatore, Tamil Nadu</span></div>
+          <div class="highlight-item">🎯 <span>85% question accuracy in State Board exams</span></div>
+          <div class="highlight-item">📱 <span>Available on WhatsApp, YouTube & Social Media</span></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-year">2009</div>
+        <p>Year Founded</p>
+        <div class="about-divider"></div>
+        <div class="about-visual-sub">Free Education for Every Tamil Nadu Student</div>
+        <div class="about-stats">
+          <div class="about-stat"><div class="about-stat-num">15+</div><div class="about-stat-label">Years Experience</div></div>
+          <div class="about-stat"><div class="about-stat-num">1000s</div><div class="about-stat-label">Students Helped</div></div>
+          <div class="about-stat"><div class="about-stat-num">85%</div><div class="about-stat-label">Exam Accuracy</div></div>
+          <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-label">Free Always</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-bg">
+  <div class="section-inner">
+    <p class="section-tag">Meet the Team</p>
+    <h2>The People Behind Namma College</h2>
+    <p class="section-sub">Our dedicated team of educators and career counsellors who work tirelessly for Tamil Nadu students.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">MB</div>
+        <h3>M. Balaji</h3>
+        <div class="role">Founder & Chief Career Counsellor</div>
+        <p>With 15+ years of experience in Tamil Nadu's education system, Balaji has personally guided thousands of students to their dream colleges. He leads all career counselling operations from Coimbatore.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">PD</div>
+        <h3>Dr. P K Dhanasekaran</h3>
+        <div class="role">Director & Academic Expert</div>
+        <p>Dr. Dhanasekaran brings deep academic expertise to Namma College. As Director, he oversees all educational content, study materials, and exam coaching programs for Tamil Nadu State Board students.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">S</div>
+        <h3>Sreenivasan</h3>
+        <div class="role">Co-Founder & Digital Strategy</div>
+        <p>Based in Germany with a Master's degree, Sreenivasan leads Namma College's digital growth, content strategy, and the Namma Global Careers initiative helping Indian healthcare professionals in Germany.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <p class="section-tag">Our Values</p>
+    <h2>What We Stand For</h2>
+    <p class="section-sub">The principles that guide everything we do at Namma College.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🆓</div>
+        <h3>Always Free</h3>
+        <p>We believe quality education guidance should be accessible to every student, regardless of financial background. Our services will always be free.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>Accuracy First</h3>
+        <p>Our 85% question match rate in Tamil Nadu State Board exams reflects our commitment to providing accurate, reliable study materials.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Personal Guidance</h3>
+        <p>We don't give generic advice. Every student gets personalized counselling based on their individual interests, aptitude, and goals.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3>Local Roots</h3>
+        <p>Deep understanding of Tamil Nadu's education system, colleges, and career landscape — knowledge built over 15+ years on the ground.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-bg">
+  <div class="section-inner">
+    <p class="section-tag" style="text-align:center">Our Journey</p>
+    <h2 style="text-align:center">Milestones Over the Years</h2>
+    <br>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot">2009</div><div class="timeline-line"></div></div>
+        <div class="timeline-content"><h4>Founded in Coimbatore</h4><p>Namma College was established with a mission to provide free career guidance to Tamil Nadu students. Started with one-on-one counselling sessions in Coimbatore.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot">2015</div><div class="timeline-line"></div></div>
+        <div class="timeline-content"><h4>Expanded Study Materials</h4><p>Launched important question paper PDFs for Tamil Nadu State Board 12th exams. First year achieved 80%+ question match rate with actual board papers.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot">2019</div><div class="timeline-line"></div></div>
+        <div class="timeline-content"><h4>Digital Expansion</h4><p>Moved to digital platforms — WhatsApp, YouTube, and Instagram — reaching students across all districts of Tamil Nadu for the first time.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot">2021</div><div class="timeline-line"></div></div>
+        <div class="timeline-content"><h4>Namma Global Careers Launched</h4><p>Expanded internationally with Namma Global Careers, helping Indian healthcare professionals find opportunities in Germany.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-left"><div class="timeline-dot">2026</div><div class="timeline-line"></div></div>
+        <div class="timeline-content"><h4>85% Question Accuracy Achieved</h4><p>Our 2026 Tamil Nadu State Board question papers achieved an 85% match rate — our highest ever. Thousands of students benefited with top scores.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-inner">
+    <h2>Ready to Get Free Guidance?</h2>
+    <p>Join thousands of Tamil Nadu students who trust Namma College for their future.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/919363515442" class="btn-whatsapp">💬 WhatsApp Us Now</a>
+      <a href="https://forms.gle/j9gts7NsFL4upKEp8" class="btn-white" target="_blank">📝 Fill Enquiry Form</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="logo.png" alt="Namma College Logo"><span>Namma College</span></div>
+        <p class="footer-desc">Tamil Nadu's trusted educational consultancy since 2009. Free career guidance, college admissions support, and exam coaching.</p>
+        <div class="footer-phones">
+          <a href="tel:+919363515442">📞 +91 93635 15442</a>
+          <a href="tel:+919442692838">📞 +91 94426 92838</a>
+          <a href="tel:+919514906081">📞 +91 95149 06081</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://instagram.com/namma.college" class="footer-social-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://facebook.com/NammaCollege" class="footer-social-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://youtube.com/@NammaCollege" class="footer-social-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://linkedin.com/company/nammacollege-official" class="footer-social-link" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Pages</h5>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="results.html">Student Results</a>
+        <a href="studymaterials.html">Study Materials</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#">Career Guidance</a>
+        <a href="#">College Admissions</a>
+        <a href="#">Exam Coaching</a>
+        <a href="#">NEET Coaching</a>
+        <a href="#">JEE Coaching</a>
+        <a href="#">CUET Coaching</a>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="https://wa.me/919363515442" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/namma.college" target="_blank">Instagram</a>
+        <a href="https://youtube.com/@NammaCollege" target="_blank">YouTube</a>
+        <a href="https://t.me/nammacollege_careerguidance" target="_blank">Telegram</a>
+        <a href="https://forms.gle/j9gts7NsFL4upKEp8" target="_blank">Enquiry Form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Namma College. All rights reserved. | nammacollege.com | Est. 2009, Coimbatore</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:11px">Designed with ❤️ for Tamil Nadu Students</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn = document.getElementById('nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var isOpen = nav.classList.toggle('is-open');
+      btn.classList.toggle('is-open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        btn.classList.remove('is-open');
+      }
+    });
+  })();
+</script>
+</body>
+</html>

@@ -9,68 +9,128 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    /* Fresh “premium” palette (deep indigo + vibrant aqua accent) */
-    --brand: #4F46E5; --brand-dark: #312E81; --brand-light: #EEF2FF;
-    --accent: #22D3EE; --white: #ffffff; --text: #0F172A;
-    --text-muted: #475569; --border: #E2E8F0; --bg-soft: #F8FAFC;
+    --brand: #2B4C8C; --brand-dark: #1a3060; --brand-light: #e8eef9;
+    --accent: #F5A623; --white: #ffffff; --text: #1a1a2e;
+    --text-muted: #5a6480; --border: #e2e8f0; --bg-soft: #f7f9fc;
+    --green: #25d366;
   }
   body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* ─── TOP BAR ─── */
+  .top-bar {
+    background: var(--brand-dark);
+    padding: 8px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .top-bar-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .top-bar-left a {
+    color: rgba(255,255,255,0.75); font-size: 12px; font-weight: 500;
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .top-bar-left a:hover { color: var(--accent); }
+  .top-bar-right { display: flex; align-items: center; gap: 10px; }
+  .top-bar-right span { color: rgba(255,255,255,0.45); font-size: 12px; }
+  .social-icon-sm {
+    width: 26px; height: 26px; border-radius: 6px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.7); transition: all 0.2s;
+  }
+  .social-icon-sm:hover { background: var(--accent); color: white; }
+  .social-icon-sm svg { width: 13px; height: 13px; fill: currentColor; }
+
+  /* ─── NAVBAR ─── */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border);
-    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 64px;
+    background: rgba(255,255,255,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--brand); text-decoration: none; }
-  .nav-links { display: flex; gap: 24px; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--brand); }
-  .nav-cta { background: var(--brand) !important; color: white !important; padding: 8px 18px; border-radius: 8px; }
-  .nav-cta:hover { background: var(--brand-dark) !important; }
-  .nav-toggle {
-    display: none;
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--brand);
+    text-decoration: none; flex-shrink: 0;
+  }
+  .nav-logo-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    overflow: hidden; display: flex; align-items: center;
+    justify-content: center; background: white;
     border: 1px solid var(--border);
-    background: white;
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
   }
-  .nav-toggle:focus-visible { outline: 3px solid rgba(79,70,229,0.35); outline-offset: 2px; }
-  .nav-toggle-lines { width: 18px; height: 12px; position: relative; }
-  .nav-toggle-lines span {
-    position: absolute; left: 0; right: 0;
-    height: 2px; background: var(--brand-dark); border-radius: 2px;
-    transition: transform 0.2s, opacity 0.2s, top 0.2s;
+  .nav-logo-icon img { width: 40px; height: 40px; object-fit: contain; }
+  .nav-links { display: flex; gap: 6px; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted);
+    font-size: 14px; font-weight: 500;
+    padding: 6px 10px; border-radius: 8px;
+    transition: all 0.2s;
   }
-  .nav-toggle-lines span:nth-child(1) { top: 0; }
-  .nav-toggle-lines span:nth-child(2) { top: 5px; }
-  .nav-toggle-lines span:nth-child(3) { top: 10px; }
-  .nav-links.is-open ~ .nav-toggle .nav-toggle-lines span:nth-child(1) { top: 5px; transform: rotate(45deg); }
-  .nav-links.is-open ~ .nav-toggle .nav-toggle-lines span:nth-child(2) { opacity: 0; }
-  .nav-links.is-open ~ .nav-toggle .nav-toggle-lines span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+  .nav-links a:hover { color: var(--brand); background: var(--brand-light); }
+  .nav-links a.active { color: var(--brand); font-weight: 600; }
+  .nav-cta {
+    background: var(--brand) !important; color: white !important;
+    padding: 8px 16px !important; border-radius: 8px !important;
+  }
+  .nav-cta:hover { background: var(--brand-dark) !important; color: white !important; }
+  .nav-toggle {
+    display: none; border: 1px solid var(--border);
+    background: white; width: 42px; height: 42px;
+    border-radius: 10px; align-items: center;
+    justify-content: center; cursor: pointer; padding: 0;
+    flex-shrink: 0;
+  }
+  .hamburger { width: 18px; height: 14px; position: relative; }
+  .hamburger span {
+    position: absolute; left: 0; right: 0; height: 2px;
+    background: var(--brand); border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .hamburger span:nth-child(1) { top: 0; }
+  .hamburger span:nth-child(2) { top: 6px; }
+  .hamburger span:nth-child(3) { top: 12px; }
+  .nav-toggle.is-open .hamburger span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+  .nav-toggle.is-open .hamburger span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+
+  /* ─── WHATSAPP FLOAT ─── */
+  .whatsapp-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366; display: flex; align-items: center;
+    justify-content: center; box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+    text-decoration: none; transition: all 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 24px rgba(37,211,102,0.5); }
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ─── HERO ─── */
   .hero {
     min-height: 88vh;
-    background: radial-gradient(1200px 600px at 80% 10%, rgba(34,211,238,0.28), transparent 60%),
-                linear-gradient(135deg, #312E81 0%, #4F46E5 45%, #0B1220 100%);
-    display: flex; align-items: center; padding: 80px 5% 60px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #2B4C8C 0%, #1a3060 60%, #0d1f42 100%);
+    display: flex; align-items: center;
+    padding: 80px 5% 60px; position: relative; overflow: hidden;
   }
-  .hero::before { content: ''; position: absolute; top: -130px; right: -160px; width: 560px; height: 560px; border-radius: 50%; background: rgba(34,211,238,0.18); pointer-events: none; filter: blur(0px); }
+  .hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: rgba(245,166,35,0.12); pointer-events: none; }
   .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 60px; }
   .hero-text { flex: 1; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,211,238,0.16); border: 1px solid rgba(34,211,238,0.35); color: #A5F3FC; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
-  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #22D3EE; display: inline-block; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,166,35,0.18); border: 1px solid rgba(245,166,35,0.4); color: #F5A623; font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #F5A623; display: inline-block; }
   h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 900; line-height: 1.1; color: white; margin-bottom: 20px; }
-  h1 em { color: #22D3EE; font-style: normal; }
+  h1 em { color: #F5A623; font-style: normal; }
   .hero-sub { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 36px; max-width: 500px; }
-  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #22D3EE; color: #072833; font-weight: 700; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; box-shadow: 0 10px 24px rgba(34,211,238,0.18); }
-  .btn-primary:hover { background: #06B6D4; transform: translateY(-1px); }
-  .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: white; font-weight: 500; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #F5A623; color: #1a1a00; font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 10px; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+  .btn-primary:hover { background: #e09614; transform: translateY(-1px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: white; font-weight: 500; font-size: 15px; padding: 13px 24px; border-radius: 10px; text-decoration: none; transition: all 0.2s; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer; }
   .btn-outline:hover { background: rgba(255,255,255,0.1); }
-  .hero-stats { display: flex; gap: 32px; margin-top: 48px; }
+  .hero-stats { display: flex; gap: 32px; margin-top: 48px; flex-wrap: wrap; }
   .stat-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 900; color: white; }
   .stat-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; }
   .hero-card { flex: 0 0 340px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 20px; padding: 28px; }
@@ -79,33 +139,43 @@
   .offer-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
   .offer-text p { font-size: 14px; font-weight: 600; color: white; }
   .offer-text span { font-size: 12px; color: rgba(255,255,255,0.5); }
-  .free-badge { margin-left: auto; background: rgba(34,211,238,0.18); color: #22D3EE; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; flex-shrink: 0; }
-  .trust-bar { background: var(--brand-light); border-bottom: 1px solid rgba(79,70,229,0.14); padding: 14px 5%; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--brand-dark); }
-  .trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--brand); opacity: 0.35; }
+  .free-badge { margin-left: auto; background: rgba(245,166,35,0.2); color: #F5A623; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; flex-shrink: 0; }
+
+  /* ─── TRUST BAR ─── */
+  .trust-bar { background: var(--brand-light); border-bottom: 1px solid #d0daf0; padding: 14px 5%; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--brand); }
+  .trust-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--brand); opacity: 0.35; }
+
+  /* ─── SECTIONS ─── */
   section { padding: 70px 5%; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-tag { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
   h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 14px; }
   .section-sub { font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+
+  /* ─── SERVICES ─── */
   .services-bg { background: var(--bg-soft); }
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
   .service-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 28px 24px; transition: all 0.25s; }
-  .service-card:hover { border-color: rgba(79,70,229,0.65); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(79,70,229,0.14); }
+  .service-card:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(43,76,140,0.12); }
   .service-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--brand-light); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
   .service-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
   .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-  .service-tag { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 800; background: var(--brand-light); color: var(--brand-dark); padding: 4px 10px; border-radius: 6px; }
+  .service-tag { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 800; background: var(--brand-light); color: var(--brand); padding: 4px 10px; border-radius: 6px; }
   .service-tag.free { background: #edfaf3; color: #1a7a4a; }
-  .results-bg { background: linear-gradient(135deg, #312E81 0%, #0B1220 85%); }
+
+  /* ─── RESULTS ─── */
+  .results-bg { background: var(--brand); }
   .results-bg h2 { color: white; }
-  .results-bg .section-tag { color: #A5F3FC; }
+  .results-bg .section-tag { color: var(--accent); }
   .results-bg .section-sub { color: rgba(255,255,255,0.65); }
   .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
   .result-card { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 24px 20px; text-align: center; transition: all 0.2s; }
   .result-card:hover { background: rgba(255,255,255,0.14); }
-  .result-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: #22D3EE; }
+  .result-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: #F5A623; }
   .result-label { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 6px; line-height: 1.4; }
+
+  /* ─── TESTIMONIALS ─── */
   .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
   .testimonial-card { background: white; border-radius: 16px; border: 1px solid var(--border); padding: 24px; position: relative; }
   .testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 72px; line-height: 0.8; color: #e8eef9; position: absolute; top: 18px; right: 20px; }
@@ -113,18 +183,56 @@
   .test-text { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 18px; }
   .test-name { font-weight: 600; font-size: 14px; }
   .test-subject { font-size: 12px; color: var(--text-muted); }
+
+  /* ─── WHY US ─── */
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   .why-list { display: flex; flex-direction: column; gap: 20px; }
   .why-item { display: flex; gap: 16px; align-items: flex-start; }
   .why-num { width: 36px; height: 36px; border-radius: 10px; background: var(--brand); color: white; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .why-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
   .why-item p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-  .why-visual { background: linear-gradient(135deg, #312E81 0%, #4F46E5 60%, #0B1220 120%); border-radius: 20px; padding: 36px; color: white; text-align: center; }
-  .why-visual-num { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: #22D3EE; line-height: 1; }
+  .why-visual { background: var(--brand); border-radius: 20px; padding: 36px; color: white; text-align: center; }
+  .why-visual-num { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; color: #F5A623; line-height: 1; }
   .why-visual p { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
-  .why-visual-divider { width: 40px; height: 3px; background: #22D3EE; border-radius: 2px; margin: 20px auto; }
+  .why-visual-divider { width: 40px; height: 3px; background: #F5A623; border-radius: 2px; margin: 20px auto; }
   .why-visual-sub { font-size: 22px; font-weight: 700; color: white; }
-  .cta-section { background: radial-gradient(900px 500px at 20% 0%, rgba(34,211,238,0.18), transparent 55%), #0B1220; text-align: center; padding: 80px 5%; }
+
+  /* ─── GOOGLE FORM SECTION ─── */
+  .form-section { background: var(--brand-light); }
+  .form-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+  .form-card {
+    background: white; border-radius: 20px;
+    border: 1px solid var(--border);
+    padding: 40px 36px;
+    box-shadow: 0 8px 32px rgba(43,76,140,0.08);
+  }
+  .form-icon { font-size: 40px; margin-bottom: 16px; }
+  .form-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--text); margin-bottom: 10px; }
+  .form-card p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; }
+  .form-fields { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-input {
+    width: 100%; padding: 12px 16px;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    font-size: 14px; font-family: 'DM Sans', sans-serif;
+    color: var(--text); transition: all 0.2s;
+    outline: none;
+  }
+  .form-input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(43,76,140,0.1); }
+  .form-input::placeholder { color: var(--text-muted); }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--brand); color: white;
+    font-size: 15px; font-weight: 700;
+    border: none; border-radius: 10px;
+    cursor: pointer; transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .form-submit:hover { background: var(--brand-dark); transform: translateY(-1px); }
+  .form-note { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
+
+  /* ─── CTA ─── */
+  .cta-section { background: #1a1a2e; text-align: center; padding: 80px 5%; }
   .cta-section h2 { color: white; font-size: clamp(28px, 4vw, 44px); margin-bottom: 14px; }
   .cta-section p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 36px; }
   .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -132,72 +240,132 @@
   .btn-whatsapp:hover { background: #1da855; }
   .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: #1a1a2e; font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; transition: all 0.2s; }
   .btn-white:hover { background: #f0f0f0; }
-  footer { background: #0d1220; padding: 48px 5% 24px; }
+
+  /* ─── FOOTER ─── */
+  footer { background: #0d1220; padding: 56px 5% 24px; }
   .footer-inner { max-width: 1100px; margin: 0 auto; }
-  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
-  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .footer-logo span { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
-  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 18px; }
-  .footer-phones a { display: block; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 6px; }
-  .footer-phones a:hover { color: #F5A623; }
-  .footer-col h5 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
-  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer-logo img { width: 36px; height: 36px; object-fit: contain; border-radius: 6px; background: white; padding: 2px; }
+  .footer-logo span { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
+  .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 20px; }
+  .footer-phones a { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 8px; }
+  .footer-phones a:hover { color: var(--accent); }
+  .footer-col h5 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.25); margin-bottom: 18px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
   .footer-col a:hover { color: white; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
-  .social-links { display: flex; gap: 10px; }
-  .social-link { width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); transition: all 0.2s; }
-  .social-link:hover { background: #2B4C8C; color: white; }
+  .footer-social { display: flex; gap: 8px; margin-top: 4px; }
+  .footer-social-link {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .footer-social-link:hover { background: var(--brand); }
+  .footer-social-link svg { width: 15px; height: 15px; fill: rgba(255,255,255,0.6); }
+  .footer-social-link:hover svg { fill: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
   @media (max-width: 768px) {
+    .top-bar { display: none; }
+    .nav-toggle { display: inline-flex; }
+    .nav-links {
+      display: none;
+      position: absolute; top: 68px; left: 0; right: 0;
+      background: white; border-bottom: 1px solid var(--border);
+      padding: 16px 5% 20px;
+      flex-direction: column; align-items: flex-start; gap: 4px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .nav-links.is-open { display: flex; }
+    .nav-links a { width: 100%; padding: 10px 14px; font-size: 15px; }
+    .nav-cta { width: 100%; justify-content: center; }
     .hero-inner { flex-direction: column; gap: 36px; }
     .hero-card { flex: none; width: 100%; }
     .hero-stats { gap: 20px; }
     .why-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; gap: 28px; }
-    nav { position: sticky; }
-    .nav-toggle { display: inline-flex; }
-    .nav-links { display: none; }
-    .nav-links.is-open {
-      display: flex;
-      position: absolute;
-      top: 64px;
-      left: 0;
-      right: 0;
-      padding: 14px 5% 18px;
-      background: rgba(255,255,255,0.98);
-      border-bottom: 1px solid var(--border);
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-    }
-    .nav-links.is-open a { font-size: 15px; }
-    .trust-bar { gap: 16px; }
+    .trust-bar { gap: 14px; }
     .trust-dot { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-card { padding: 28px 20px; }
+  }
+  @media (max-width: 480px) {
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    .cta-btns { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- TODO: Replace this with your real Google Form link -->
-<!-- Example: https://forms.gle/xxxxxxxxxxxxxxxxx -->
+<!-- ─── WHATSAPP FLOAT ─── -->
+<a href="https://wa.me/919363515442" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
 
+<!-- ─── TOP BAR ─── -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <a href="tel:+919363515442">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      +91 93635 15442
+    </a>
+    <a href="tel:+919442692838">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      +91 94426 92838
+    </a>
+    <a href="mailto:info@nammacollege.com">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      info@nammacollege.com
+    </a>
+  </div>
+  <div class="top-bar-right">
+    <span>Follow us:</span>
+    <a href="https://instagram.com/namma.college" class="social-icon-sm" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://facebook.com/NammaCollege" class="social-icon-sm" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="https://youtube.com/@NammaCollege" class="social-icon-sm" target="_blank" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://linkedin.com/company/nammacollege-official" class="social-icon-sm" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ─── NAVBAR ─── -->
 <nav>
-  <a class="nav-logo" href="#">
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <img src="logo.png" alt="Namma College Logo">
+    </div>
     Namma College
   </a>
-  <div class="nav-links" id="primary-nav" aria-label="Primary navigation">
-    <a href="index.html">Home</a>
+  <div class="nav-links" id="primary-nav">
+    <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="results.html">Results</a>
     <a href="studymaterials.html">Study Materials</a>
-    <a href="https://forms.gle/H4kSKdrAaHuGma2Q7" class="nav-cta" target="_blank" rel="noopener noreferrer">📝 Contact / Enquiry</a>
+    <a href="contact.html" class="nav-cta">📞 Contact Us</a>
   </div>
-  <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
-    <span class="nav-toggle-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <div class="hamburger"><span></span><span></span><span></span></div>
   </button>
 </nav>
 
+<!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
@@ -206,8 +374,8 @@
       <p class="hero-sub">Free career guidance, college admissions support & 12th exam coaching for Tamil Nadu students. 85% question accuracy in Board exams.</p>
       <div class="hero-btns">
         <a href="https://wa.me/919363515442" class="btn-primary">💬 Get Free Guidance</a>
-        <a href="https://forms.gle/H4kSKdrAaHuGma2Q7" class="btn-outline" target="_blank" rel="noopener noreferrer">📝 Submit Enquiry Form</a>
-        <a href="#" class="btn-outline">📥 Download Question Papers</a>
+        <a href="https://forms.gle/j9gts7NsFL4upKEp8" class="btn-outline" target="_blank">📝 Fill Enquiry Form</a>
+        <a href="studymaterials.html" class="btn-outline">📥 Study Materials</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
@@ -250,6 +418,7 @@
   </div>
 </section>
 
+<!-- ─── TRUST BAR ─── -->
 <div class="trust-bar">
   <div class="trust-item">✅ 100% Free Guidance</div>
   <div class="trust-dot"></div>
@@ -262,6 +431,7 @@
   <div class="trust-item">🎯 85% Exam Accuracy</div>
 </div>
 
+<!-- ─── SERVICES ─── -->
 <section class="services-bg">
   <div class="section-inner">
     <p class="section-tag">What We Do</p>
@@ -296,6 +466,7 @@
   </div>
 </section>
 
+<!-- ─── RESULTS ─── -->
 <section class="results-bg">
   <div class="section-inner">
     <p class="section-tag">2026 Public Exam Results</p>
@@ -310,6 +481,7 @@
   </div>
 </section>
 
+<!-- ─── TESTIMONIALS ─── -->
 <section>
   <div class="section-inner">
     <p class="section-tag">Student Stories</p>
@@ -338,6 +510,7 @@
   </div>
 </section>
 
+<!-- ─── WHY US ─── -->
 <section class="services-bg">
   <div class="section-inner">
     <div class="why-grid">
@@ -376,82 +549,141 @@
   </div>
 </section>
 
+<!-- ─── GOOGLE FORM SECTION ─── -->
+<section class="form-section">
+  <div class="section-inner">
+    <div class="form-inner">
+      <p class="section-tag" style="text-align:center">Get Free Guidance</p>
+      <h2 style="text-align:center">Register for Career Counselling</h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto 32px">Fill in your details and our team will contact you within 24 hours — completely free!</p>
+      <div class="form-card">
+        <div class="form-icon">📝</div>
+        <h3>Student Enquiry Form</h3>
+        <p>Share your details and we'll guide you to the right college and career path. No fees, no obligation.</p>
+        <div class="form-fields">
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="Student Name *">
+            <input type="tel" class="form-input" placeholder="Mobile Number *">
+          </div>
+          <div class="form-row">
+            <input type="text" class="form-input" placeholder="Current Class (10th/11th/12th)">
+            <input type="text" class="form-input" placeholder="District / City">
+          </div>
+          <select class="form-input">
+            <option value="" disabled selected>What guidance do you need?</option>
+            <option>Career Guidance</option>
+            <option>College Admissions</option>
+            <option>Study Materials</option>
+            <option>Exam Coaching</option>
+            <option>All of the above</option>
+          </select>
+        </div>
+        <button class="form-submit" onclick="window.open('https://forms.gle/j9gts7NsFL4upKEp8','_blank')">
+          Submit & Get Free Guidance →
+        </button>
+        <p class="form-note">✅ 100% Free · No spam · We respond within 24 hours</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
 <section class="cta-section">
   <div class="section-inner">
     <h2>Ready to Start Your Journey?</h2>
     <p>Get free career guidance today. No fees, no appointments — just reach out.</p>
     <div class="cta-btns">
       <a href="https://wa.me/919363515442" class="btn-whatsapp">💬 WhatsApp Us Now</a>
-      <a href="https://forms.gle/H4kSKdrAaHuGma2Q7" class="btn-white" target="_blank" rel="noopener noreferrer">📝 Fill Enquiry Form</a>
+      <a href="https://forms.gle/j9gts7NsFL4upKEp8" class="btn-white" target="_blank">📝 Fill Enquiry Form</a>
       <a href="tel:+919363515442" class="btn-white">📞 +91 93635 15442</a>
     </div>
   </div>
 </section>
 
+<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
         <div class="footer-logo">
+          <img src="logo.png" alt="Namma College Logo">
           <span>Namma College</span>
         </div>
-        <p class="footer-desc">Tamil Nadu's trusted educational consultancy since 2009. Providing free career guidance, college admissions support, and exam coaching to thousands of students.</p>
+        <p class="footer-desc">Tamil Nadu's trusted educational consultancy since 2009. Free career guidance, college admissions support, and exam coaching for thousands of students.</p>
         <div class="footer-phones">
           <a href="tel:+919363515442">📞 +91 93635 15442</a>
           <a href="tel:+919442692838">📞 +91 94426 92838</a>
           <a href="tel:+919514906081">📞 +91 95149 06081</a>
         </div>
+        <div class="footer-social" style="margin-top:16px">
+          <a href="https://instagram.com/namma.college" class="footer-social-link" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://facebook.com/NammaCollege" class="footer-social-link" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://youtube.com/@NammaCollege" class="footer-social-link" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/nammacollege-official" class="footer-social-link" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://t.me/nammacollege_careerguidance" class="footer-social-link" target="_blank" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-col">
         <h5>Pages</h5>
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Services</a>
-        <a href="#">Student Results</a>
-        <a href="#">Study Materials</a>
-        <a href="https://forms.gle/H4kSKdrAaHuGma2Q7" target="_blank" rel="noopener noreferrer">Contact / Enquiry Form</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="results.html">Student Results</a>
+        <a href="studymaterials.html">Study Materials</a>
+        <a href="contact.html">Contact Us</a>
       </div>
       <div class="footer-col">
-        <h5>Follow Us</h5>
+        <h5>Services</h5>
+        <a href="#">Career Guidance</a>
+        <a href="#">College Admissions</a>
+        <a href="#">Exam Coaching</a>
+        <a href="#">NEET Coaching</a>
+        <a href="#">JEE Coaching</a>
+        <a href="#">CUET Coaching</a>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="https://wa.me/919363515442" target="_blank">WhatsApp</a>
         <a href="https://instagram.com/namma.college" target="_blank">Instagram</a>
-        <a href="https://facebook.com/NammaCollege" target="_blank">Facebook</a>
         <a href="https://youtube.com/@NammaCollege" target="_blank">YouTube</a>
-        <a href="https://linkedin.com/company/namma-college" target="_blank">LinkedIn</a>
+        <a href="https://t.me/nammacollege_careerguidance" target="_blank">Telegram</a>
+        <a href="https://forms.gle/j9gts7NsFL4upKEp8" target="_blank">Enquiry Form</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Namma College. All rights reserved. | nammacollege.com</p>
-      <div class="social-links">
-        <a class="social-link" href="https://linkedin.com/company/namma-college" target="_blank">in</a>
-        <a class="social-link" href="https://facebook.com/NammaCollege" target="_blank">fb</a>
-        <a class="social-link" href="https://youtube.com/@NammaCollege" target="_blank">yt</a>
-        <a class="social-link" href="https://instagram.com/namma.college" target="_blank">ig</a>
-      </div>
+      <p>© 2026 Namma College. All rights reserved. | nammacollege.com | Est. 2009, Coimbatore</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:11px">Designed with ❤️ for Tamil Nadu Students</p>
     </div>
   </div>
 </footer>
 
 <script>
-  (function () {
-    document.addEventListener('DOMContentLoaded', function () {
-      var btn = document.querySelector('.nav-toggle');
-      var nav = document.getElementById('primary-nav');
-      if (!btn || !nav) return;
-
-      btn.addEventListener('click', function () {
-        var isOpen = nav.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', String(isOpen));
-        btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-      });
-
-      window.addEventListener('resize', function () {
-        var isMobile = window.innerWidth <= 768;
-        if (!isMobile && nav.classList.contains('is-open')) {
-          nav.classList.remove('is-open');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.setAttribute('aria-label', 'Open menu');
-        }
-      });
+  (function() {
+    var btn = document.getElementById('nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      var isOpen = nav.classList.toggle('is-open');
+      btn.classList.toggle('is-open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768 && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
     });
   })();
 </script>
